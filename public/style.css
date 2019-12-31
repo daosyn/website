@@ -1,0 +1,26 @@
+.facelet {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  border: 20px solid;
+  transition: margin 2s;
+}
+
+.r-face {
+  background-color: red;
+}
+.l-face {
+  background-color: orange;
+}
+.f-face {
+  background-color: green;
+}
+.b-face {
+  background-color: blue;
+}
+.u-face {
+  background-color: white;
+}
+.d-face {
+  background-color: yellow;
+}
