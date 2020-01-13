@@ -1,7 +1,7 @@
 {
   "name": "daosyn.info",
   "version": "1.0.0",
-  "description": "",
+  "description": "daosyn.info homepage shenanigans",
   "main": "app.js",
   "scripts": {
     "start": "webpack src/index.js --output public/app.js -d --watch",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/daosyn/website#readme",
   "dependencies": {
-    "mithril": "^1.1.7"
+    "mithril": "^2.0.4"
   },
   "devDependencies": {
     "webpack": "^4.30.0",
