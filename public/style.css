@@ -1,9 +1,7 @@
 .facelet {
-  width: 100px;
-  height: 100px;
   display: inline-block;
   border: 20px solid;
-  transition: margin 2s;
+  transition: margin 0.5s;
 }
 
 .r-face {

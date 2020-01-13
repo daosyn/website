@@ -6,14 +6,13 @@ function sleep(ms) {
 }
 
 async function loop() {
-  Cube.initialize();
-  while(true) {
+  while (true) {
     await sleep(1000);
-    Cube.refresh();
+    Cube.move();
     m.redraw();
   }
 }
 
+// Cube.initialize();
 m.mount(document.body, Cube);
 loop();
-

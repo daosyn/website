@@ -1,10 +1,9 @@
 import m from "mithril";
 
-const Facelet = {
+const Face = {
   view: function(vnode) {
     return m("div", { ...vnode.attrs });
   }
-}
+};
 
-export default Facelet;
-
+export default Face;
