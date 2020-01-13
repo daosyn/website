@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/daosyn/website#readme",
   "dependencies": {
-    "mithril": "^1.1.6"
+    "mithril": "^1.1.7"
   },
   "devDependencies": {
     "webpack": "^4.30.0",
