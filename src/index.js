@@ -13,6 +13,5 @@ async function loop() {
   }
 }
 
-// Cube.initialize();
 m.mount(document.body, Cube);
 loop();

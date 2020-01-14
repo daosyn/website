@@ -5,60 +5,50 @@ const Cube = {
   counter: 0,
   margin: "0px",
   top: "0px",
-  faceletArr: [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5],
+  faceletArr: [...Array(36).keys()],
   faces: ["r-face", "l-face", "f-face", "b-face", "u-face", "d-face"],
+  links: ["/blog", "/about", "/gallery"],
   getAttributes: function(i) {
     const face = this.faces[i % 6];
     return "facelet " + face;
   },
-  initialize: function() {
-    let height = window.innerHeight;
-    let width = window.innerWidth;
-    this.size =
-      (height >= width ? Math.ceil(width / 9) : Math.ceil(height / 9)) + "px";
-    // change later
-    return this.faceletArr.map(value => {
-      return m(
-        "div",
-        {
-          class: this.getAttributes(value),
-          style: {
-            width: this.size,
-            height: this.size,
-            marginLeft: value === 0 ? this.margin : null,
-            marginTop: value === 0 ? this.top : null
-          }
-        },
-        parseInt(this.margin) - parseInt(window.innerWidth)
-      );
-    });
-  },
+  //   let height = window.innerHeight;
+  //   let width = window.innerWidth;
+  //   this.size =
+  //     (height >= width ? Math.ceil(width / 9) : Math.ceil(height / 9)) + "px";
   move: function() {
     // just increment margins
     // use transitions to move squares
-    if (parseInt(this.margin) > parseInt(window.innerWidth)) {
+    if (parseInt(this.margin) > parseInt(window.innerWidth) - 280) {
       this.margin = "0px";
-      // this.top = parseInt(this.top) + 100 + "px";
-      // if (parseInt(this.top) > parseInt(window.innerHeight)) {
-      //   this.top = "0px";
-      // }
+      this.top = parseInt(this.top) + 140 + "px";
+      if (parseInt(this.top) > parseInt(window.innerHeight) / 2) {
+        this.top = "0px";
+      }
     } else {
-      this.margin = parseInt(this.margin) + 100 + "px";
+      this.margin = parseInt(this.margin) + 140 + "px";
     }
   },
   view: function() {
-    return [
-      m("main", this.initialize()),
-      m(
-        "div",
-        {
+    return m(
+      "div.cube-container",
+      this.faceletArr.map(value => {
+        return m("div", {
+          class: this.getAttributes(value),
+          style: {
+            width: "100px",
+            height: "100px",
+            marginLeft: this.margin,
+            marginTop: value < 6 ? this.top : null
+          },
           onclick: () => {
-            this.counter++;
-          }
-        },
-        this.counter
-      )
-    ];
+            console.log(this.links[Math.floor(Math.random() * 3)]);
+            // window.location.replace(this.links[Math.floor(Math.random() * 3)]);
+          },
+          key: value
+        });
+      })
+    );
   }
 };
 
