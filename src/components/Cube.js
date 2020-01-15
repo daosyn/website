@@ -9,10 +9,13 @@ const Cube = {
   //   this.size =
   //     (height >= width ? Math.ceil(width / 9) : Math.ceil(height / 9)) + "px";
   counter: 0,
-  margin: "0px",
+  margin: "-100px",
   top: "0px",
   faceletArr: [...Array(64).keys()],
   faces: ["r-face", "l-face", "f-face", "b-face", "u-face", "d-face"],
+  // about - ?
+  // blog - &
+  // gallery - #
   links: ["/blog", "/about", "/gallery"],
   getAttributes: function(i) {
     // calculate column here for now
@@ -22,8 +25,8 @@ const Cube = {
   move: function() {
     // just increment margins
     // use transitions to move squares
-    if (parseInt(this.margin) > parseInt(window.innerWidth) - 200) {
-      this.margin = "0px";
+    if (parseInt(this.margin) > parseInt(window.innerWidth) - 1200) {
+      this.margin = "-100px";
       this.top = parseInt(this.top) + 100 + "px";
       if (parseInt(this.top) > parseInt(window.innerHeight) / 2) {
         this.top = "0px";
@@ -39,7 +42,7 @@ const Cube = {
         return m("div", {
           class: this.getAttributes(value),
           style: {
-            marginLeft: value < 6 ? this.margin : value >= 36 ? "-100px" : null
+            marginLeft: value >= 6 && value < 12 ? this.margin : value >= 36 ? "-100px" : null
             // marginTop: value < 6 ? this.top : null
           },
           onclick: () => {
@@ -47,7 +50,7 @@ const Cube = {
             // window.location.replace(this.links[Math.floor(Math.random() * 3)]);
           },
           key: value
-        });
+        }, '#');
       })
     );
   }

@@ -14,7 +14,12 @@
   height: 80px;
   border: 10px solid;
   transition: margin 0.25s;
-  margin-left: -100px;
+  margin-left: 0px;
+  text-align: center;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .r-face {
