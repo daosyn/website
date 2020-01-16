@@ -8,7 +8,6 @@ const Cube = {
   //   let width = window.innerWidth;
   //   this.size =
   //     (height >= width ? Math.ceil(width / 9) : Math.ceil(height / 9)) + "px";
-  counter: 0,
   margin: "-100px",
   top: "0px",
   faceletArr: [...Array(64).keys()],
@@ -25,7 +24,7 @@ const Cube = {
   move: function() {
     // just increment margins
     // use transitions to move squares
-    if (parseInt(this.margin) > parseInt(window.innerWidth) - 1200) {
+    if (parseInt(this.margin) > 0) {
       this.margin = "-100px";
       this.top = parseInt(this.top) + 100 + "px";
       if (parseInt(this.top) > parseInt(window.innerHeight) / 2) {
@@ -36,13 +35,13 @@ const Cube = {
     }
   },
   view: function() {
-    return m(
+    return [m(
       "div.cube-container",
       this.faceletArr.map(value => {
         return m("div", {
           class: this.getAttributes(value),
           style: {
-            marginLeft: value >= 6 && value < 12 ? this.margin : value >= 36 ? "-100px" : null
+            marginLeft: value > 8 ? this.margin : null
             // marginTop: value < 6 ? this.top : null
           },
           onclick: () => {
@@ -50,9 +49,9 @@ const Cube = {
             // window.location.replace(this.links[Math.floor(Math.random() * 3)]);
           },
           key: value
-        }, '#');
+        });
       })
-    );
+    ), m("div.cube-mask", [m("div", "daosyn.info"), m("div", "brandon dao"), m("div", "about"), m("div", "blog"), m("div", "gallery")])];
   }
 };
 

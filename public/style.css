@@ -1,12 +1,31 @@
 .cube-container {
-  height: 600px;
-  width: 600px;
+  height: 800px;
+  width: 800px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
   position: absolute;
   left: 50%;
-  margin-left: -300px;
+  margin-left: -400px;
+}
+
+.cube-mask {
+  height: 600px;
+  width: 600px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  border: 100px solid white;
+  text-align: center;
+}
+
+.cube-mask div {
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
 }
 
 .facelet {
@@ -15,11 +34,6 @@
   border: 10px solid;
   transition: margin 0.25s;
   margin-left: 0px;
-  text-align: center;
-  line-height: 80px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .r-face {
