@@ -12,10 +12,7 @@ const Cube = {
   top: "0px",
   faceletArr: [...Array(64).keys()],
   faces: ["r-face", "l-face", "f-face", "b-face", "u-face", "d-face"],
-  // about - ?
-  // blog - &
-  // gallery - #
-  links: ["/blog", "/about", "/gallery"],
+  links: ["/blog", "/about", "/photos"],
   getAttributes: function(i) {
     // calculate column here for now
     const face = this.faces[i % 6];
@@ -35,23 +32,32 @@ const Cube = {
     }
   },
   view: function() {
-    return [m(
-      "div.cube-container",
-      this.faceletArr.map(value => {
-        return m("div", {
-          class: this.getAttributes(value),
-          style: {
-            marginLeft: value > 8 ? this.margin : null
-            // marginTop: value < 6 ? this.top : null
-          },
-          onclick: () => {
-            console.log(this.links[Math.floor(Math.random() * 3)]);
-            // window.location.replace(this.links[Math.floor(Math.random() * 3)]);
-          },
-          key: value
-        });
-      })
-    ), m("div.cube-mask", [m("div", "daosyn.info"), m("div", "brandon dao"), m("div", "about"), m("div", "blog"), m("div", "gallery")])];
+    return [
+      m(
+        "div.cube-container",
+        this.faceletArr.map(value => {
+          return m("div", {
+            class: this.getAttributes(value),
+            style: {
+              marginLeft: value > 7 ? this.margin : null
+              // marginTop: value < 6 ? this.top : null
+            },
+            onclick: () => {
+              console.log(this.links[Math.floor(Math.random() * 3)]);
+              // window.location.replace(this.links[Math.floor(Math.random() * 3)]);
+            },
+            key: value
+          });
+        })
+      ),
+      m("div.cube-mask", [
+        m("div#title", "daosyn.info"),
+        m("div#name", "brandon dao"),
+        m("div#about", "about"),
+        m("div#blog", "blog"),
+        m("div#photos", "photos")
+      ])
+    ];
   }
 };
 
