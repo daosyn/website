@@ -14,6 +14,9 @@ async function loop() {
 }
 
 const App = {
+  handleclick: function(path) {
+    window.location.href = path;
+  },
   view: function() {
     return [
       m(
@@ -23,17 +26,20 @@ const App = {
             return m("div", {
               class: Cube.getAttributes(faceIndex),
               style: {
-                marginLeft: arrayIndex === 1 || arrayIndex === 3 ? Cube.margin : null
+                marginLeft:
+                  arrayIndex === 1 || arrayIndex === 3 || arrayIndex === 5
+                    ? Cube.margin
+                    : parseInt(Cube.margin) * -1 + "px"
               }
             });
           });
         })
       ),
       m(".cube-mask", [
-        m("#title", "daosyn.info"),
-        m("#name", "brandon dao"),
+        m(".title", "daosyn.info"),
+        m(".name", "brandon dao"),
         m(
-          "#about",
+          ".about",
           {
             onclick: () => {
               window.location.href = "/about";
@@ -41,8 +47,15 @@ const App = {
           },
           "about"
         ),
-        m("#blog", { onclick: () => console.log("blog") }, "blog"),
-        m("#photos", { onclick: () => console.log("photos") }, "photos")
+        m(".blog", { onclick: () => console.log("blog") }, "blog"),
+        m(".photos", { onclick: () => console.log("photos") }, "photos")
+      ]),
+      m(".cube-mask", [
+        m("#title", "daosyn.info"),
+        m("#name", "brandon dao"),
+        m("#about", { onclick: () => this.handleclick("about") }, "about"),
+        m("#blog", { onclick: () => this.handleclick("blog") }, "blog"),
+        m("#photos", { onclick: () => this.handleclick("photos") }, "photos")
       ])
     ];
   }

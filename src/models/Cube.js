@@ -5,7 +5,7 @@ const Cube = {
   //   let width = window.innerWidth;
   //   this.size =
   //     (height >= width ? Math.ceil(width / 9) : Math.ceil(height / 9)) + "px";
-  margin: "-100px",
+  margin: "-90px",
   top: "0px",
   faces: ["r-face", "l-face", "f-face", "b-face", "u-face", "d-face"],
   links: ["/blog", "/about", "/photos"],
@@ -16,12 +16,12 @@ const Cube = {
   },
   faceletArr: [
     [null, 0, 1, 2, 3, 4, 5, null],
-    [5, 0, 1, 2, 3, 4, 5, 4],
-    [5, 0, 1, 2, 3, 4, 5, 4],
-    [5, 0, 1, 2, 3, 4, 5, 4],
-    [5, 0, 1, 2, 3, 4, 5, 4],
-    [5, 0, 1, 2, 3, 4, 5, 4],
-    [5, 0, 1, 2, 3, 4, 5, 4],
+    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
+    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
+    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
+    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
+    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
+    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
     [null, 0, 1, 2, 3, 4, 5, null]
   ],
   move: function() {
@@ -33,9 +33,9 @@ const Cube = {
     const direction = Math.floor(Math.random() * 2);
     // * 2 different directions
     if (parseInt(this.margin) > 0) {
-      this.margin = "-100px";
+      this.margin = "-90px";
     } else {
-      this.margin = parseInt(this.margin) + 100 + "px";
+      this.margin = parseInt(this.margin) + 90 + "px";
     }
   }
 };
