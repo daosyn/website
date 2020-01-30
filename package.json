@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "webpack src/index.js --output public/app.js -d --watch",
-    "build": "webpack src/index.js --output public/app.js -p",
+    "build": "webpack src/index.js --output dist/app.js -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
