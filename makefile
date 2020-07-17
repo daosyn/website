@@ -1,3 +1,4 @@
+# forget this, just build the mithril app
 TARGETS:= clean posts home
 
 all: $(TARGETS)
