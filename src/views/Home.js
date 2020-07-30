@@ -24,17 +24,17 @@ const Home = {
         })
       ),
       m(".cube-mask", [
-        m(".title", "daosyn.info"),
-        m(".name", "brandon dao"),
+        m(".title", "daosyn"),
+        // m(".name", "brandon dao"),
         m(".about", "about"),
-        m(".blog", "blog"),
+        // m(".blog", "blog"),
         m(".photos", "photos"),
       ]),
       m(".cube-mask", [
-        m("#title", "daosyn.info"),
-        m("#name", "brandon dao"),
+        m("#title", "daosyn"),
+        // m("#name", "brandon dao"),
         m("#about", { onclick: () => this.handleclick("about") }, "about"),
-        m("#blog", { onclick: () => this.handleclick("blog") }, "blog"),
+        // m("#blog", { onclick: () => this.handleclick("blog") }, "blog"),
         m("#photos", { onclick: () => this.handleclick("photos") }, "photos"),
       ]),
     ];

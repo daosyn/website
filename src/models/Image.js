@@ -8,10 +8,9 @@ const IMG_END = ".jpg";
 const Image = (id, hash) => {
   return m(
     "a",
-    { href: `${LINK_START}${id}${LINK_END}`, target: "_blank" },
+    { href: `${LINK_START}${id}${LINK_END}`, target: "_blank", class: "photo" },
     m("img", {
       src: `${IMG_START}${id}${hash}${IMG_END}`,
-      style: "width: 33%; height: 33%;",
     })
   );
 };

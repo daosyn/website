@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "webpack-dev": "webpack src/app.js --output dist/app.js -d --watch",
-    "http-server": "http-server dist/ -p 5442",
-    "start": "run-p webpack-dev http-server",
-    "build": "webpack src/app.js --output dist/app.js -p",
+    "http-serve": "http-server dist/ -p 5442",
+    "start": "run-p webpack-dev http-serve",
+    "build": "cp -r static/* dist/ && webpack src/app.js --output dist/app.js -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/daosyn/website.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "daosyn",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/daosyn/website/issues"

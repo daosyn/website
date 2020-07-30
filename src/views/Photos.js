@@ -1,3 +1,4 @@
+import m from "mithril";
 import Image from "../models/Image";
 
 const imgArr = [
@@ -8,7 +9,10 @@ const imgArr = [
 
 const Photos = {
   view: function () {
-    return imgArr.map((img) => Image(img[0], img[1]));
+    return m(
+      ".photos-container",
+      imgArr.map((img) => Image(img[0], img[1]))
+    );
   },
 };
 
