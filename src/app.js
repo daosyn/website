@@ -1,6 +1,7 @@
 import m from "mithril";
 import Cube from "./models/Cube";
 import Home from "./views/Home";
+import About from "./views/About"
 import Photos from "./views/Photos";
 
 function sleep(ms) {
@@ -17,6 +18,7 @@ async function loop() {
 
 m.route(document.body, "/", {
   "/": Home,
-  "/photos": Photos,
+  "/about": About,
+  "/photos": Photos
 });
 loop();

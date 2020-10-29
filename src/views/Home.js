@@ -17,28 +17,24 @@ const Home = {
                 marginLeft:
                   arrayIndex === 1 || arrayIndex === 3 || arrayIndex === 5
                     ? Cube.margin
-                    : parseInt(Cube.margin) * -1 + "px",
-              },
+                    : parseInt(Cube.margin) * -1 + "px"
+              }
             });
           });
         })
       ),
       m(".cube-mask", [
         m(".title", "daosyn"),
-        // m(".name", "brandon dao"),
         m(".about", "about"),
-        // m(".blog", "blog"),
-        m(".photos", "photos"),
+        m(".photos", "photos")
       ]),
       m(".cube-mask", [
         m("#title", "daosyn"),
-        // m("#name", "brandon dao"),
         m("#about", { onclick: () => this.handleclick("about") }, "about"),
-        // m("#blog", { onclick: () => this.handleclick("blog") }, "blog"),
-        m("#photos", { onclick: () => this.handleclick("photos") }, "photos"),
-      ]),
+        m("#photos", { onclick: () => this.handleclick("photos") }, "photos")
+      ])
     ];
-  },
+  }
 };
 
 export default Home;
