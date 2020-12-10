@@ -7,6 +7,9 @@ body {
   margin: 0;
   font-family: daosyn;
 }
+noscript {
+  text-align: center;
+}
 
 .cube-container {
   height: 720px;
