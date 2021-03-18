@@ -1,7 +1,7 @@
 import m from "mithril";
 import Cube from "./models/Cube";
 import Home from "./views/Home";
-import About from "./views/About"
+import About from "./views/About";
 import Photos from "./views/Photos";
 
 function sleep(ms) {
@@ -10,8 +10,8 @@ function sleep(ms) {
 
 async function loop() {
   while (true) {
-    await sleep(1000);
-    Cube.move();
+    await sleep(1500);
+    // Cube.moveFace(Math.floor(Math.random() * 6), Math.floor(Math.random() * 2));
     m.redraw();
   }
 }

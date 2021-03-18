@@ -6,6 +6,7 @@
 body {
   margin: 0;
   font-family: daosyn;
+  background-color: gray;
 }
 noscript {
   text-align: center;
@@ -30,7 +31,7 @@ noscript {
   position: absolute;
   left: 50%;
   margin-left: -360px;
-  border: 90px solid white;
+  /* border: 90px solid gray; */
   text-align: center;
 }
 

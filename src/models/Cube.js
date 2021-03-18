@@ -16,15 +16,14 @@ const Cube = {
   },
   faceletArr: [
     [null, 0, 1, 2, 3, 4, 5, null],
-    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
-    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
-    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
-    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
-    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
-    [Math.floor(Math.random() * 6), 0, 1, 2, 3, 4, 5, Math.floor(Math.random() * 6)],
+    [null, 0, 1, 2, 3, 4, 5, null],
+    [null, 0, 1, 2, 3, 4, 5, null],
+    [null, 0, 1, 2, 3, 4, 5, null],
+    [null, 0, 1, 2, 3, 4, 5, null],
+    [null, 0, 1, 2, 3, 4, 5, null],
     [null, 0, 1, 2, 3, 4, 5, null]
   ],
-  move: function() {
+  moveFace: function() {
     // just increment margins
     // use transitions to move squares
     // TODO:
@@ -33,7 +32,7 @@ const Cube = {
     const direction = Math.floor(Math.random() * 2);
     // * 2 different directions
     if (parseInt(this.margin) > 0) {
-      this.margin = "-90px";
+      this.margin = "-90px"; // determine position using css instead, to animate
     } else {
       this.margin = parseInt(this.margin) + 90 + "px";
     }
