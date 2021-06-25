@@ -1,8 +1,13 @@
 # daosyn.info
 
 ## set up
-1. `npm i`
-2. `npm run start` starts webpack with live reload and a server on http://localhost:5442
+`npm i`
+
+## run
+`npm run serve` starts server with live reload on http://localhost:5442
+
+## dev
+`npm run build` for production and `npm run lint` to run linter
 
 ## static files
 * `bash <(curl -fsL https://daosyn.info/install)` sets up new machines
