@@ -7,6 +7,11 @@
 </template>
 
 <style>
+html,
+body {
+  height: 100%;
+}
+
 @font-face {
   font-family: "savior";
   src: local("savior"), url(./fonts/savior.woff) format("woff");
@@ -18,6 +23,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #7a0a0a;
+  height: 50%;
 }
 
 #nav {

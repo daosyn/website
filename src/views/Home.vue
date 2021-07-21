@@ -1,8 +1,6 @@
 <template>
-  <div class="home">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <Cube />
-  </div>
+  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  <Cube />
 </template>
 
 <script>

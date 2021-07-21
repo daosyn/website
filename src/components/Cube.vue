@@ -1,5 +1,5 @@
 <template>
-  <div ref="cube">
+  <div id="cube-container" ref="cube">
     <div v-for="(row, y) in faceletMatrix" :key="y">
       <span
         v-for="(facelet, x) in row"
@@ -9,8 +9,7 @@
           height: faceletDimensions + 'px',
         }"
         :class="facelet"
-        >o</span
-      >
+      ></span>
     </div>
   </div>
 </template>
@@ -44,7 +43,12 @@ export default {
   },
   methods: {
     setFaceletDimensions() {
-      this.faceletDimensions = this.$refs.cube.clientWidth / 6;
+      console.log(this.$refs.cube.clientHeight, this.$refs.cube.clientWidth);
+      this.faceletDimensions =
+        this.$refs.cube.clientWidth > this.$refs.cube.clientHeight
+          ? this.$refs.cube.clientHeight / 6
+          : this.$refs.cube.clientWidth / 6;
+      console.log(this.faceletDimensions);
     },
     setRandomMovement() {
       this.randomMovementHandler = setInterval(() => {
@@ -85,6 +89,10 @@ export default {
 </script>
 
 <style>
+#cube-container {
+  height: 100%;
+}
+
 span {
   display: inline-block;
   outline: 5px solid black;
