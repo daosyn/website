@@ -1,22 +1,36 @@
 <template>
   <div id="cube-container" ref="cube">
     <div v-for="(row, y) in faceletMatrix" :key="y">
-      <div
-        v-for="(facelet, x) in row"
-        :key="x"
-        :style="[faceletDimensions, facelet.isMoving]"
-        :class="facelet.classes"
-      >
-        <router-link v-if="facelet.link" :to="facelet.link.href">{{
-          facelet.link.label
-        }}</router-link>
-        <div v-else :style="{ visibility: 'hidden' }">daosyn</div>
-      </div>
+      <template v-for="(facelet, x) in row" :key="x">
+        <router-link
+          v-if="facelet.route"
+          :to="facelet.route.path"
+          custom
+          v-slot="{ navigate }"
+        >
+          <div
+            @click="navigate"
+            @keypress.enter="navigate"
+            role="link"
+            :style="[faceletDimensions, facelet.isMoving]"
+            :class="facelet.classes"
+          >
+            {{ facelet.route.name }}
+          </div>
+        </router-link>
+        <div
+          v-else
+          :style="[faceletDimensions, facelet.isMoving]"
+          :class="facelet.classes"
+        ></div>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
+import { routes } from "@/router/index.js";
+
 export default {
   name: "Cube",
   data() {
@@ -28,7 +42,7 @@ export default {
             y,
             classes: [`color-${y}`, "facelet"],
             isMoving: { transform: "" },
-            link: null,
+            route: null,
           };
         })
       ),
@@ -38,7 +52,7 @@ export default {
     };
   },
   mounted() {
-    this.setLinks();
+    this.setRoutes();
     this.setFaceletDimensions();
     this.setRandomMovement();
     window.addEventListener("resize", this.setFaceletDimensions);
@@ -47,22 +61,13 @@ export default {
     clearInterval(this.randomMovementHandler);
     window.removeEventListener("resize", this.setFaceletDimensions);
   },
-  computed: {
-    // moving() {
-    //   return this.isMovingX // && this.isMovingX.which === y
-    //     ? `translateX(${this.isMovingX.increment}px)`
-    //     : "";
-    // },
-  },
   methods: {
-    setLinks() {
-      [
-        { href: "/", label: "daosyn" },
-        { href: "/about", label: "about" },
-      ].forEach((link) => {
+    setRoutes() {
+      routes.forEach((route) => {
         const x = Math.floor(Math.random() * 6);
         const y = Math.floor(Math.random() * 6);
-        this.faceletMatrix[x][y].link = link;
+        this.faceletMatrix[x][y].route = route;
+        this.faceletMatrix[x][y].classes.push("link");
       });
     },
     setFaceletDimensions() {
@@ -141,27 +146,23 @@ export default {
 <style>
 #cube-container {
   height: 100%;
+  margin-top: 2.5vw;
 }
-#cube-container a {
-  font-weight: bold;
-  color: #7a0a0a;
-  transition: all 1s;
-  text-decoration: none;
-}
-#cube-container a.router-link-exact-active {
-  color: #b42222;
-}
-#cube-container a:hover {
-  font-weight: bold;
-  transform: translate(10%, 10%);
-  color: white;
+.link:hover {
+  cursor: pointer;
+  transform: rotate(5deg);
 }
 
 .facelet {
+  position: relative;
   display: inline-block;
   border: 5px solid black;
   transition: 1s transform ease-out;
   font-size: 2vw;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  vertical-align: bottom;
 }
 
 .color-0 {

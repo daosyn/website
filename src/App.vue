@@ -1,10 +1,10 @@
 <template>
   <div id="desktop-container" v-if="isDesktop">
     <Cube />
-    <router-view />
+    <router-view id="content-container" />
   </div>
   <div id="mobile-container" v-else>
-    <router-view />
+    <router-view id="content-container" />
     <Cube />
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 <style>
 html,
 body {
-  height: 90%;
+  height: 95%;
   background-color: #252525;
 }
 
@@ -51,8 +51,14 @@ body {
 #desktop-container {
   grid-template-columns: 50% 50%;
 }
-
 #mobile-container {
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 50% 50%;
+}
+#content-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 </style>
