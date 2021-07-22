@@ -1,15 +1,17 @@
 <template>
   <div id="cube-container" ref="cube">
     <div v-for="(row, y) in faceletMatrix" :key="y">
-      <span
+      <div
         v-for="(facelet, x) in row"
         :key="x"
-        :style="{
-          width: faceletDimensions + 'px',
-          height: faceletDimensions + 'px',
-        }"
-        :class="facelet"
-      ></span>
+        :style="[faceletDimensions, facelet.isMoving]"
+        :class="facelet.classes"
+      >
+        <router-link v-if="facelet.link" :to="facelet.link.href">{{
+          facelet.link.label
+        }}</router-link>
+        <div v-else :style="{ visibility: 'hidden' }">daosyn</div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,20 +21,24 @@ export default {
   name: "Cube",
   data() {
     return {
-      faceletMatrix: [
-        ["color-0", "color-1", "color-2", "color-3", "color-4", "color-5"],
-        ["color-0", "color-1", "color-2", "color-3", "color-4", "color-5"],
-        ["color-0", "color-1", "color-2", "color-3", "color-4", "color-5"],
-        ["color-0", "color-1", "color-2", "color-3", "color-4", "color-5"],
-        ["color-0", "color-1", "color-2", "color-3", "color-4", "color-5"],
-        ["color-0", "color-1", "color-2", "color-3", "color-4", "color-5"],
-        // [0, 1, 2, 3, 4, 5],
-      ],
+      faceletMatrix: new Array(6).fill().map((_, y) =>
+        new Array(6).fill().map((_, x) => {
+          return {
+            x,
+            y,
+            classes: [`color-${y}`, "facelet"],
+            isMoving: { transform: "" },
+            link: null,
+          };
+        })
+      ),
       randomMovementHandler: null,
       faceletDimensions: null,
+      size: null,
     };
   },
   mounted() {
+    this.setLinks();
     this.setFaceletDimensions();
     this.setRandomMovement();
     window.addEventListener("resize", this.setFaceletDimensions);
@@ -41,14 +47,33 @@ export default {
     clearInterval(this.randomMovementHandler);
     window.removeEventListener("resize", this.setFaceletDimensions);
   },
+  computed: {
+    // moving() {
+    //   return this.isMovingX // && this.isMovingX.which === y
+    //     ? `translateX(${this.isMovingX.increment}px)`
+    //     : "";
+    // },
+  },
   methods: {
+    setLinks() {
+      [
+        { href: "/", label: "daosyn" },
+        { href: "/about", label: "about" },
+      ].forEach((link) => {
+        const x = Math.floor(Math.random() * 6);
+        const y = Math.floor(Math.random() * 6);
+        this.faceletMatrix[x][y].link = link;
+      });
+    },
     setFaceletDimensions() {
-      console.log(this.$refs.cube.clientHeight, this.$refs.cube.clientWidth);
-      this.faceletDimensions =
+      this.size =
         this.$refs.cube.clientWidth > this.$refs.cube.clientHeight
-          ? this.$refs.cube.clientHeight / 6
-          : this.$refs.cube.clientWidth / 6;
-      console.log(this.faceletDimensions);
+          ? this.$refs.cube.clientHeight / 6 - 20
+          : this.$refs.cube.clientWidth / 6 - 20;
+      this.faceletDimensions = {
+        width: this.size + "px",
+        height: this.size + "px",
+      };
     },
     setRandomMovement() {
       this.randomMovementHandler = setInterval(() => {
@@ -62,27 +87,52 @@ export default {
         }
       }, 1000);
     },
-    moveUp(column) {
-      let prev = this.faceletMatrix[0][column];
-      for (var i = this.faceletMatrix.length - 1; i >= 0; i--) {
-        let temp = this.faceletMatrix[i][column];
-        this.faceletMatrix[i][column] = prev;
-        prev = temp;
+    moveY(column, size) {
+      for (const facelet of this.faceletMatrix) {
+        facelet[column].isMoving.transform = `translateY(${size}px)`;
       }
+      setTimeout(() => {
+        const down = size > 0;
+        const lastIndex = this.faceletMatrix.length - 1;
+        let prev = this.faceletMatrix[down ? lastIndex : 0][column];
+        for (
+          let i = down ? 0 : lastIndex;
+          down ? i <= lastIndex : i >= 0;
+          down ? i++ : i--
+        ) {
+          let temp = this.faceletMatrix[i][column];
+          this.faceletMatrix[i][column] = prev;
+          this.faceletMatrix[i][column].isMoving.transform = "";
+          prev = temp;
+        }
+      }, 250);
+    },
+    moveUp(column) {
+      this.moveY(column, -this.size);
     },
     moveDown(column) {
-      let prev = this.faceletMatrix[this.faceletMatrix.length - 1][column];
-      for (const facelet of this.faceletMatrix) {
-        let temp = facelet[column];
-        facelet[column] = prev;
-        prev = temp;
-      }
+      this.moveY(column, this.size);
+    },
+    moveX(row, size) {
+      this.faceletMatrix[row].forEach((facelet) => {
+        facelet.isMoving.transform = `translateX(${size}px)`;
+      });
+      setTimeout(() => {
+        this.faceletMatrix[row].forEach((facelet) => {
+          facelet.isMoving.transform = "";
+        });
+        if (size > 0) {
+          this.faceletMatrix[row].unshift(this.faceletMatrix[row].pop());
+        } else {
+          this.faceletMatrix[row].push(this.faceletMatrix[row].shift());
+        }
+      }, 250);
     },
     moveLeft(row) {
-      this.faceletMatrix[row].push(this.faceletMatrix[row].shift());
+      this.moveX(row, -this.size);
     },
     moveRight(row) {
-      this.faceletMatrix[row].unshift(this.faceletMatrix[row].pop());
+      this.moveX(row, this.size);
     },
   },
 };
@@ -92,18 +142,26 @@ export default {
 #cube-container {
   height: 100%;
 }
+#cube-container a {
+  font-weight: bold;
+  color: #7a0a0a;
+  transition: all 1s;
+  text-decoration: none;
+}
+#cube-container a.router-link-exact-active {
+  color: #b42222;
+}
+#cube-container a:hover {
+  font-weight: bold;
+  transform: translate(10%, 10%);
+  color: white;
+}
 
-span {
+.facelet {
   display: inline-block;
-  outline: 5px solid black;
-  transition: 1s transform linear;
-}
-
-.moving-x {
-  transform: translateX(50px);
-}
-.moving-y {
-  transform: translateY(50px);
+  border: 5px solid black;
+  transition: 1s transform ease-out;
+  font-size: 2vw;
 }
 
 .color-0 {

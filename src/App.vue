@@ -1,15 +1,35 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="desktop-container" v-if="isDesktop">
+    <Cube />
+    <router-view />
   </div>
-  <router-view />
+  <div id="mobile-container" v-else>
+    <router-view />
+    <Cube />
+  </div>
 </template>
+
+<script>
+import Cube from "@/components/Cube.vue";
+
+export default {
+  setup() {},
+  components: {
+    Cube,
+  },
+  computed: {
+    isDesktop() {
+      return window.innerWidth > window.innerHeight; // if false, likely mobile
+    },
+  },
+};
+</script>
 
 <style>
 html,
 body {
-  height: 100%;
+  height: 90%;
+  background-color: #252525;
 }
 
 @font-face {
@@ -17,25 +37,22 @@ body {
   src: local("savior"), url(./fonts/savior.woff) format("woff");
 }
 
-#app {
+#app,
+#desktop-container,
+#mobile-container {
   font-family: "savior", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #7a0a0a;
-  height: 50%;
+  color: #ffffff;
+  height: 100%;
+  display: grid;
+}
+#desktop-container {
+  grid-template-columns: 50% 50%;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #7a0a0a;
-}
-
-#nav a.router-link-exact-active {
-  color: #b42222;
+#mobile-container {
+  grid-template-rows: 60% 40%;
 }
 </style>
