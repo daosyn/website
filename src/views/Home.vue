@@ -10,24 +10,27 @@
         }).format(new Date())
       }}
     </h2>
-    <h3>// currently listening to //</h3>
-    <ul>
-      <li>jubilee - japanese breakfast</li>
-    </ul>
-    <h3>// currently reading //</h3>
-    <ul>
-      <li>one, none and a hundred thousand - luigi pirandello</li>
-      <li>yotsuba!&</li>
-    </ul>
-    <h3>// currently obsessed with //</h3>
-    <ul>
-      <li>rock climbing</li>
-    </ul>
+    <h3>
+      <a
+        href="https://last.fm/user/daosyn"
+        target="_blank"
+        rel="noopener noreferrer"
+        >// currently listening to //</a
+      ></h3>
+    <h3>
+      <a
+        href="https://goodreads.com/daosyn"
+        target="_blank"
+        rel="noopener noreferrer"
+        >// currently reading //</a
+      >
+    </h3>
   </div>
 </template>
 
 <style scoped>
-ul {
-  list-style-type: none;
+a {
+  color: crimson;
+  text-decoration: none;
 }
 </style>

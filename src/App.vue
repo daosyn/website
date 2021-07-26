@@ -57,8 +57,6 @@ body {
 #content-container {
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100%;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  margin: 5vw;
 }
 </style>
