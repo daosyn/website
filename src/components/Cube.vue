@@ -33,24 +33,20 @@ import { routes } from "@/router/index.js";
 
 export default {
   name: "Cube",
-  data() {
-    return {
-      faceletMatrix: new Array(6).fill().map((_, y) =>
-        new Array(6).fill().map((_, x) => {
-          return {
-            x,
-            y,
-            classes: [`color-${y}`, "facelet"],
-            isMoving: { transform: "" },
-            route: null,
-          };
-        })
-      ),
-      randomMovementHandler: null,
-      faceletDimensions: null,
-      size: null,
-    };
-  },
+  data: () => ({
+    faceletMatrix: new Array(6).fill().map((_, y) =>
+      new Array(6).fill().map((_, x) => ({
+        x,
+        y,
+        classes: [`color-${y}`, "facelet"],
+        isMoving: { transform: "" },
+        route: null,
+      }))
+    ),
+    randomMovementHandler: null,
+    faceletDimensions: null,
+    size: null,
+  }),
   mounted() {
     this.setRoutes();
     this.setFaceletDimensions();

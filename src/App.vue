@@ -13,14 +13,12 @@
 import Cube from "@/components/Cube.vue";
 
 export default {
-  setup() {},
+  setup: () => {},
   components: {
     Cube,
   },
   computed: {
-    isDesktop() {
-      return window.innerWidth > window.innerHeight; // if false, likely mobile
-    },
+    isDesktop: () => window.innerWidth > window.innerHeight // if false, likely mobile
   },
 };
 </script>
