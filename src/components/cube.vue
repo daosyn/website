@@ -1,5 +1,5 @@
 <template>
-  <div id="cube-container" ref="cube">
+  <div ref="cube">
     <div v-for="(row, y) in faceletMatrix" :key="y">
       <template v-for="(facelet, x) in row" :key="x">
         <router-link
@@ -32,7 +32,7 @@
 import { routes } from "@/router/index.js";
 
 export default {
-  name: "Cube",
+  name: "cube",
   data: () => ({
     faceletMatrix: new Array(6).fill().map((_, y) =>
       new Array(6).fill().map((_, x) => ({
@@ -140,10 +140,6 @@ export default {
 </script>
 
 <style>
-#cube-container {
-  height: 100%;
-  margin-top: 2.5vw;
-}
 .link:hover {
   cursor: pointer;
   transform: rotate(5deg);

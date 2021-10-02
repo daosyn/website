@@ -1,24 +1,29 @@
 <template>
-  <div id="desktop-container" v-if="isDesktop">
-    <Cube />
+  <div id="desktop-container" v-if="isLandscape">
+    <cube id="cube-container" />
     <router-view id="content-container" />
   </div>
   <div id="mobile-container" v-else>
     <router-view id="content-container" />
-    <Cube />
+    <cube id="cube-container" />
   </div>
 </template>
 
 <script>
-import Cube from "@/components/Cube.vue";
+import cube from "@/components/cube.vue";
 
 export default {
   setup: () => {},
   components: {
-    Cube,
+    cube,
   },
-  computed: {
-    isDesktop: () => window.innerWidth > window.innerHeight // if false, likely mobile
+  data: () => ({
+    isLandscape: window.innerWidth > window.innerHeight,
+  }),
+  mounted() {
+    window.addEventListener("resize", () => {
+      this.isLandscape = window.innerWidth > window.innerHeight;
+    });
   },
 };
 </script>
@@ -26,8 +31,8 @@ export default {
 <style>
 html,
 body {
-  height: 95%;
   background-color: #252525;
+  height: 95vh;
 }
 
 @font-face {
@@ -35,6 +40,9 @@ body {
   src: local("savior"), url(./fonts/savior.woff) format("woff");
 }
 
+#app {
+  height: 95vh;
+}
 #app,
 #desktop-container,
 #mobile-container {
@@ -43,8 +51,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #ffffff;
-  height: 100%;
   display: grid;
+  height: 95vh;
 }
 #desktop-container {
   grid-template-columns: 50% 50%;
@@ -56,5 +64,8 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   margin: 5vw;
+}
+#cube-container {
+  margin-top: 2.5vw;
 }
 </style>

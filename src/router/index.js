@@ -1,16 +1,26 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import home from "../views/home.vue";
 
 export const routes = [
   {
     path: "/",
     name: "daosyn",
-    component: Home
+    component: home
   },
   {
     path: "/about",
     name: "about",
-    component: () => import("../views/About.vue")
+    component: () => import("../views/about.vue")
+  },
+  // {
+  //   path: "/music",
+  //   name: "music",
+  //   component: () => import("../views/bandcamp.vue")
+  // },
+  {
+    path: "/rain",
+    name: "rainy days",
+    component: () => import("../views/rain.vue")
   }
 ];
 
