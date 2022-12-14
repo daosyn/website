@@ -73,17 +73,13 @@ if [ "$os" == "Darwin" ]; then
     xcode-select --install
 
     # homebrew
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew bundle --file=$HOME/.brewfile
     brew cleanup
 
     # use latest bash
     sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
     chsh -s /usr/local/bin/bash
-
-    # code sign chunkwm
-    codesign -fs "chunkwm-cert" /usr/local/opt/chunkwm/bin/chunkwm
-    brew services start chunkwm
 fi
 
 echo -e "\n${red}downloading wallpapers...${nocolor}\n"
