@@ -12,11 +12,11 @@ export const routes = [
     name: "about",
     component: () => import("../views/about.vue")
   },
-  // {
-  //   path: "/music",
-  //   name: "music",
-  //   component: () => import("../views/bandcamp.vue")
-  // },
+  {
+    path: "/music",
+    name: "music",
+    component: () => import("../views/bandcamp.vue")
+  },
   {
     path: "/rain",
     name: "rainy days",
