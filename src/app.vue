@@ -13,7 +13,7 @@
 import cube from "@/components/cube.vue";
 
 export default {
-  setup: () => {},
+  setup: () => { },
   components: {
     cube,
   },
@@ -43,6 +43,7 @@ body {
 #app {
   height: 95vh;
 }
+
 #app,
 #desktop-container,
 #mobile-container {
@@ -54,18 +55,21 @@ body {
   display: grid;
   height: 95vh;
 }
+
 #desktop-container {
   grid-template-columns: 50% 50%;
 }
+
 #mobile-container {
   grid-template-rows: 50% 50%;
 }
+
 #content-container {
   overflow-x: hidden;
   overflow-y: auto;
   margin: 5vw;
 }
+
 #cube-container {
   margin-top: 2.5vw;
-}
-</style>
+}</style>

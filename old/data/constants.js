@@ -1,4 +1,7 @@
 export const imageUrl = [
+  // mainly keeping this "old" directory here because
+  // it would still be nice to implement an image gallery
+  // featuring these flickr photos
   ["50106152443", "_1d6b977755_c_d"],
   ["50106957492", "_9190b35f90_c_d"],
   ["50106149833", "_24cd5578fb_c_d"],

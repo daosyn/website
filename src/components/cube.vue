@@ -2,27 +2,13 @@
   <div ref="cube">
     <div v-for="(row, y) in faceletMatrix" :key="y">
       <template v-for="(facelet, x) in row" :key="x">
-        <router-link
-          v-if="facelet.route"
-          :to="facelet.route.path"
-          custom
-          v-slot="{ navigate }"
-        >
-          <div
-            @click="navigate"
-            @keypress.enter="navigate"
-            role="link"
-            :style="[faceletDimensions, facelet.isMoving]"
-            :class="facelet.classes"
-          >
+        <router-link v-if="facelet.route" :to="facelet.route.path" custom v-slot="{ navigate }">
+          <div @click="navigate" @keypress.enter="navigate" role="link" :style="[faceletDimensions, facelet.isMoving]"
+            :class="facelet.classes">
             {{ facelet.route.name }}
           </div>
         </router-link>
-        <div
-          v-else
-          :style="[faceletDimensions, facelet.isMoving]"
-          :class="facelet.classes"
-        ></div>
+        <div v-else :style="[faceletDimensions, facelet.isMoving]" :class="facelet.classes"></div>
       </template>
     </div>
   </div>
@@ -60,8 +46,12 @@ export default {
   methods: {
     setRoutes() {
       routes.forEach((route) => {
-        const x = Math.floor(Math.random() * 6);
-        const y = Math.floor(Math.random() * 6);
+        let x = Math.floor(Math.random() * 6);
+        let y = Math.floor(Math.random() * 6);
+        while (this.faceletMatrix[x][y].route) {
+          x = Math.floor(Math.random() * 6);
+          y = Math.floor(Math.random() * 6);
+        }
         this.faceletMatrix[x][y].route = route;
         this.faceletMatrix[x][y].classes.push("link");
       });
@@ -160,18 +150,23 @@ export default {
 .color-0 {
   background-color: red;
 }
+
 .color-1 {
   background-color: blue;
 }
+
 .color-2 {
   background-color: white;
 }
+
 .color-3 {
   background-color: orange;
 }
+
 .color-4 {
   background-color: green;
 }
+
 .color-5 {
   background-color: yellow;
 }
