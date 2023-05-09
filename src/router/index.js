@@ -1,32 +1,32 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import home from "../views/home.vue";
 
 export const routes = [
   {
     path: "/",
     name: "daosyn",
-    component: home
+    component: home,
   },
   {
     path: "/about",
     name: "about",
-    component: () => import("../views/about.vue")
+    component: () => import("../views/about.vue"),
   },
   {
     path: "/music",
     name: "music",
-    component: () => import("../views/bandcamp.vue")
+    component: () => import("../views/bandcamp.vue"),
   },
   {
     path: "/rain",
     name: "rainy days",
-    component: () => import("../views/rain.vue")
-  }
+    component: () => import("../views/rain.vue"),
+  },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+  history: createWebHistory(),
+  routes,
 });
 
 export default router;

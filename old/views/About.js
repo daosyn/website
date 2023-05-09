@@ -6,7 +6,7 @@ const About = {
     // currently reading:
     // currently listening to:
     // currently obsessed with:
-  }
+  },
 };
 
 export default About;

@@ -8,7 +8,7 @@ const Photos = {
       ".photos-container",
       imageUrl.map((img) => Image(img[0], img[1]))
     );
-  }
+  },
 };
 
 export default Photos;

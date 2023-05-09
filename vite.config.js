@@ -6,9 +6,6 @@ export default defineConfig({
   server: {
     port: 1250,
   },
-  build: {
-    emptyOutDir: false,
-  },
   plugins: [vue()],
   resolve: {
     alias: {

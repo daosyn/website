@@ -98,8 +98,8 @@ export default {
     // let igScript = document.createElement('script');
     // igScript.setAttribute('src', 'https://www.instagram.com/embed.js');
     // document.head.appendChild(igScript);
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

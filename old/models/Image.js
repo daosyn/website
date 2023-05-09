@@ -10,7 +10,7 @@ const Image = (id, hash) => {
     "a",
     { href: `${LINK_START}${id}${LINK_END}`, target: "_blank", class: "photo" },
     m("img", {
-      src: `${IMG_START}${id}${hash}${IMG_END}`
+      src: `${IMG_START}${id}${hash}${IMG_END}`,
     })
   );
 };

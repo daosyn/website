@@ -9,7 +9,7 @@ const Cube = {
   top: "0px",
   faces: ["r-face", "l-face", "f-face", "b-face", "u-face", "d-face"],
   links: ["/blog", "/about", "/photos"],
-  getAttributes: function(i) {
+  getAttributes: function (i) {
     // calculate column here for now
     const face = this.faces[i];
     return "facelet " + face;
@@ -21,9 +21,9 @@ const Cube = {
     [null, 0, 1, 2, 3, 4, 5, null],
     [null, 0, 1, 2, 3, 4, 5, null],
     [null, 0, 1, 2, 3, 4, 5, null],
-    [null, 0, 1, 2, 3, 4, 5, null]
+    [null, 0, 1, 2, 3, 4, 5, null],
   ],
-  moveFace: function() {
+  moveFace: function () {
     // just increment margins
     // use transitions to move squares
     // TODO:
@@ -36,7 +36,7 @@ const Cube = {
     } else {
       this.margin = parseInt(this.margin) + 90 + "px";
     }
-  }
+  },
 };
 
 export default Cube;

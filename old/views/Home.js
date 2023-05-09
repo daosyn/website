@@ -17,8 +17,8 @@ const Home = {
                 marginLeft:
                   arrayIndex === 1 || arrayIndex === 3 || arrayIndex === 5
                     ? Cube.margin
-                    : parseInt(Cube.margin) * -1 + "px"
-              }
+                    : parseInt(Cube.margin) * -1 + "px",
+              },
             });
           });
         })
@@ -26,15 +26,15 @@ const Home = {
       m(".cube-mask", [
         m(".title", "daosyn"),
         m(".about", "about"),
-        m(".photos", "photos")
+        m(".photos", "photos"),
       ]),
       m(".cube-mask", [
         m("#title", "daosyn"),
         m("#about", { onclick: () => this.handleclick("about") }, "about"),
-        m("#photos", { onclick: () => this.handleclick("photos") }, "photos")
-      ])
+        m("#photos", { onclick: () => this.handleclick("photos") }, "photos"),
+      ]),
     ];
-  }
+  },
 };
 
 export default Home;

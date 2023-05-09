@@ -19,6 +19,6 @@ async function loop() {
 m.route(document.body, "/", {
   "/": Home,
   "/about": About,
-  "/photos": Photos
+  "/photos": Photos,
 });
 loop();

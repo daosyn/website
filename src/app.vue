@@ -1,9 +1,9 @@
 <template>
-  <div id="desktop-container" v-if="isLandscape">
+  <div v-if="isLandscape" id="desktop-container">
     <cube id="cube-container" />
     <router-view id="content-container" />
   </div>
-  <div id="mobile-container" v-else>
+  <div v-else id="mobile-container">
     <router-view id="content-container" />
     <cube id="cube-container" />
   </div>
@@ -13,10 +13,10 @@
 import cube from "@/components/cube.vue";
 
 export default {
-  setup: () => { },
   components: {
     cube,
   },
+  setup: () => {},
   data: () => ({
     isLandscape: window.innerWidth > window.innerHeight,
   }),
@@ -72,4 +72,5 @@ body {
 
 #cube-container {
   margin-top: 2.5vw;
-}</style>
+}
+</style>

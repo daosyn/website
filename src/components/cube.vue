@@ -2,13 +2,27 @@
   <div ref="cube">
     <div v-for="(row, y) in faceletMatrix" :key="y">
       <template v-for="(facelet, x) in row" :key="x">
-        <router-link v-if="facelet.route" :to="facelet.route.path" custom v-slot="{ navigate }">
-          <div @click="navigate" @keypress.enter="navigate" role="link" :style="[faceletDimensions, facelet.isMoving]"
-            :class="facelet.classes">
+        <router-link
+          v-if="facelet.route"
+          v-slot="{ navigate }"
+          :to="facelet.route.path"
+          custom
+        >
+          <div
+            role="link"
+            :style="[faceletDimensions, facelet.isMoving]"
+            :class="facelet.classes"
+            @click="navigate"
+            @keypress.enter="navigate"
+          >
             {{ facelet.route.name }}
           </div>
         </router-link>
-        <div v-else :style="[faceletDimensions, facelet.isMoving]" :class="facelet.classes"></div>
+        <div
+          v-else
+          :style="[faceletDimensions, facelet.isMoving]"
+          :class="facelet.classes"
+        />
       </template>
     </div>
   </div>
@@ -18,14 +32,16 @@
 import { routes } from "@/router/index.js";
 
 export default {
-  name: "cube",
+  name: "Cube",
   data: () => ({
+    MOVE_TIMER: 1000,
+    TRANSFORM_TIMER: 250,
     faceletMatrix: new Array(6).fill().map((_, y) =>
       new Array(6).fill().map((_, x) => ({
         x,
         y,
         classes: [`color-${y}`, "facelet"],
-        isMoving: { transform: "" },
+        isMoving: { transform: "translate(0, 0)" },
         route: null,
       }))
     ),
@@ -76,7 +92,7 @@ export default {
         } else {
           direction ? this.moveUp(index) : this.moveDown(index);
         }
-      }, 1000);
+      }, this.MOVE_TIMER);
     },
     moveY(column, size) {
       for (const facelet of this.faceletMatrix) {
@@ -93,10 +109,10 @@ export default {
         ) {
           let temp = this.faceletMatrix[i][column];
           this.faceletMatrix[i][column] = prev;
-          this.faceletMatrix[i][column].isMoving.transform = "";
+          this.faceletMatrix[i][column].isMoving.transform = "translateY(0px)";
           prev = temp;
         }
-      }, 250);
+      }, this.TRANSFORM_TIMER);
     },
     moveUp(column) {
       this.moveY(column, -this.size);
@@ -110,14 +126,14 @@ export default {
       });
       setTimeout(() => {
         this.faceletMatrix[row].forEach((facelet) => {
-          facelet.isMoving.transform = "";
+          facelet.isMoving.transform = "translateX(0px)";
         });
         if (size > 0) {
           this.faceletMatrix[row].unshift(this.faceletMatrix[row].pop());
         } else {
           this.faceletMatrix[row].push(this.faceletMatrix[row].shift());
         }
-      }, 250);
+      }, this.TRANSFORM_TIMER);
     },
     moveLeft(row) {
       this.moveX(row, -this.size);
@@ -130,6 +146,15 @@ export default {
 </script>
 
 <style>
+@keyframes anim {
+  50% {
+    transform: translate(50px, 50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 .link:hover {
   cursor: pointer;
   transform: rotate(5deg);
@@ -139,7 +164,7 @@ export default {
   position: relative;
   display: inline-block;
   border: 5px solid black;
-  transition: 1s transform ease-out;
+  transition: 0.5s transform ease-out;
   font-size: 2vw;
   font-weight: bold;
   color: black;
