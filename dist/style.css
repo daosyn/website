@@ -1,0 +1,120 @@
+@font-face {
+  font-family: daosyn;
+  src: url(savior.woff) format("woff");
+}
+
+body {
+  margin: 0;
+  font-family: daosyn;
+  background-color: gray;
+}
+noscript {
+  text-align: center;
+}
+
+.cube-container {
+  height: 720px;
+  width: 720px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 90px 90px 90px 90px 90px 90px 90px 90px;
+  position: absolute;
+  left: 50%;
+  margin-left: -360px;
+}
+
+.cube-mask {
+  height: 540px;
+  width: 540px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -360px;
+  /* border: 90px solid gray; */
+  text-align: center;
+}
+
+.cube-mask div {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  transition: all 1s;
+}
+
+#title,
+.title {
+  cursor: default;
+  grid-row: 1;
+  grid-column: 4;
+  margin-top: 10px;
+}
+#about,
+.about {
+  cursor: pointer;
+  grid-row: 4;
+  grid-column: 1;
+}
+#photos,
+.photos {
+  cursor: pointer;
+  grid-row: 8;
+  grid-column: 1;
+}
+#about:hover,
+#photos:hover {
+  color: white;
+  transform: translate(5px, 5px);
+}
+
+.facelet {
+  width: 70px;
+  height: 70px;
+  border: 10px solid;
+  /* position: absolute; */
+  transition: all 0.5s;
+}
+
+.r-face {
+  background-color: red;
+}
+.l-face {
+  background-color: orange;
+}
+.f-face {
+  background-color: green;
+}
+.b-face {
+  background-color: blue;
+}
+.u-face {
+  background-color: white;
+}
+.d-face {
+  background-color: yellow;
+}
+
+.photos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.photo {
+  flex: 33.33%;
+  max-width: 33.33%;
+  max-height: 33.33%;
+}
+
+/* .column a img {
+  margin-top: 10px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+} */
