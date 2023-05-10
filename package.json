@@ -14,12 +14,12 @@
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.6.1",
+    "@vitejs/plugin-vue": "^4.2.1",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-vue": "^9.11.0",
     "prettier": "^2.8.8",
-    "vite": "^2.5.4"
+    "vite": "^4.3.5"
   },
   "browserslist": [
     "> 1%",

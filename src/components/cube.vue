@@ -41,7 +41,7 @@ export default {
         x,
         y,
         classes: [`color-${y}`, "facelet"],
-        isMoving: { transform: "translate(0, 0)" },
+        isMoving: { transform: "" },
         route: null,
       }))
     ),
@@ -96,7 +96,7 @@ export default {
     },
     moveY(column, size) {
       for (const facelet of this.faceletMatrix) {
-        facelet[column].isMoving.transform = `translateY(${size}px)`;
+        facelet[column].isMoving.transform = `translateY(${size/4}px)`;
       }
       setTimeout(() => {
         const down = size > 0;
@@ -109,7 +109,7 @@ export default {
         ) {
           let temp = this.faceletMatrix[i][column];
           this.faceletMatrix[i][column] = prev;
-          this.faceletMatrix[i][column].isMoving.transform = "translateY(0px)";
+          this.faceletMatrix[i][column].isMoving.transform = "";
           prev = temp;
         }
       }, this.TRANSFORM_TIMER);
@@ -122,11 +122,11 @@ export default {
     },
     moveX(row, size) {
       this.faceletMatrix[row].forEach((facelet) => {
-        facelet.isMoving.transform = `translateX(${size}px)`;
+        facelet.isMoving.transform = `translateX(${size/4}px)`;
       });
       setTimeout(() => {
         this.faceletMatrix[row].forEach((facelet) => {
-          facelet.isMoving.transform = "translateX(0px)";
+          facelet.isMoving.transform = "";
         });
         if (size > 0) {
           this.faceletMatrix[row].unshift(this.faceletMatrix[row].pop());
@@ -146,25 +146,16 @@ export default {
 </script>
 
 <style>
-@keyframes anim {
-  50% {
-    transform: translate(50px, 50px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
 .link:hover {
   cursor: pointer;
-  transform: rotate(5deg);
+  transform: rotate(15deg);
 }
 
 .facelet {
   position: relative;
   display: inline-block;
   border: 5px solid black;
-  transition: 0.5s transform ease-out;
+  transition: transform 1s ease-out;
   font-size: 2vw;
   font-weight: bold;
   color: black;

@@ -17,11 +17,11 @@ export const routes = [
     name: "music",
     component: () => import("../views/bandcamp.vue"),
   },
-  {
-    path: "/rain",
-    name: "rainy days",
-    component: () => import("../views/rain.vue"),
-  },
+  // {
+  //   path: "/rain",
+  //   name: "rainy days",
+  //   component: () => import("../views/rain.vue"),
+  // },
 ];
 
 const router = createRouter({
