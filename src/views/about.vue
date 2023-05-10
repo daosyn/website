@@ -7,7 +7,6 @@
       soon after
     </p>
     <p>right now my obsessions are rock climbing and playing guitar</p>
-    <p>come back later</p>
     <!-- <blockquote class="instagram-media" data-instgrm-captioned
       data-instgrm-permalink="https://www.instagram.com/reel/ChPlDYEARmA/?utm_source=ig_embed&amp;utm_campaign=loading"
       data-instgrm-version="14"
