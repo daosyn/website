@@ -5,21 +5,21 @@
       {{ today }}
     </h2>
     <h3>
-      <a
-        href="https://last.fm/user/daosyn"
-        target="_blank"
-        rel="noopener noreferrer"
-        >// currently listening to //</a
-      >
+      <router-link to="/lastfm">// currently listening to //</router-link>
     </h3>
     <h3>
-      <a
-        href="https://goodreads.com/daosyn"
-        target="_blank"
-        rel="noopener noreferrer"
-        >// currently reading //</a
-      >
+      <router-link to="/goodreads">// currently reading //</router-link>
     </h3>
+    <h3>
+      <router-link to="/youtube">// currently singing //</router-link>
+    </h3>
+    <h3>
+      <router-link to="/mastodon">// currently thinking about //</router-link>
+    </h3>
+    <h3>
+      <router-link to="/climb">// recently climbed //</router-link>
+    </h3>
+    <img src="/images/inmato.jpg" alt="inmato" />
     <!-- <iframe
       allowfullscreen
       sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox"
@@ -63,5 +63,9 @@ export default {
 a {
   color: crimson;
   text-decoration: none;
+}
+
+img {
+  width: 50%;
 }
 </style>

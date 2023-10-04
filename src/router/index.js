@@ -13,9 +13,9 @@ export const routes = [
     component: () => import("../views/about.vue"),
   },
   {
-    path: "/music",
-    name: "music",
-    component: () => import("../views/bandcamp.vue"),
+    path: "/youtube",
+    name: "youtube",
+    component: () => import("../views/youtube.vue"),
   },
   // {
   //   path: "/rain",
