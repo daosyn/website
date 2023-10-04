@@ -9,13 +9,33 @@ export const routes = [
   },
   {
     path: "/about",
-    name: "about",
+    name: "_me",
     component: () => import("../views/about.vue"),
   },
   {
     path: "/youtube",
-    name: "youtube",
+    name: "_yt",
     component: () => import("../views/youtube.vue"),
+  },
+  {
+    path: "/goodreads",
+    name: "_book",
+    component: () => import("../views/goodreads.vue"),
+  },
+  {
+    path: "/mastodon",
+    name: "_mstdn",
+    component: () => import("../views/mastodon.vue"),
+  },
+  {
+    path: "/lastfm",
+    name: "_lastfm",
+    component: () => import("../views/lastfm.vue"),
+  },
+  {
+    path: "/transparent_girl",
+    name: "_climb",
+    component: () => import("../views/climb.vue"),
   },
   // {
   //   path: "/rain",

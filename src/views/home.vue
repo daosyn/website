@@ -20,13 +20,6 @@
     <h3>
       <router-link to="/climb">// recently climbed //</router-link>
     </h3>
-    <!-- <iframe
-      allowfullscreen
-      sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox"
-      width="100%"
-      height="100%"
-      src="http://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Fmastodon.social%2Fusers%2Fdaosyn&theme=dark&size=100&header=false&replies=false&boosts=false"
-    /> -->
   </div>
 </template>
 
