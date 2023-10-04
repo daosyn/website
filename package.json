@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && cp dist/index.html dist/404.html",
-    "deploy": "npm run build && git subtree push --prefix dist origin gh-pages",
+    "deploy": "npm run build && bash ./deploy.sh",
     "serve": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write"
