@@ -4,6 +4,7 @@
     <h2>
       {{ today }}
     </h2>
+    <img src="/images/inmato.jpg" alt="inmato" />
     <h3>
       <router-link to="/lastfm">// currently listening to //</router-link>
     </h3>
@@ -19,7 +20,6 @@
     <h3>
       <router-link to="/climb">// recently climbed //</router-link>
     </h3>
-    <img src="/images/inmato.jpg" alt="inmato" />
     <!-- <iframe
       allowfullscreen
       sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox"
