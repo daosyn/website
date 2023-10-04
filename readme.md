@@ -1,5 +1,7 @@
 # daosyn.info
 
+[link to the site](https://daosyn.info)
+
 ## set up
 
 `npm i`
@@ -11,6 +13,10 @@
 ## dev
 
 `npm run build` for production and `npm run lint` to run linter
+
+## deploy
+
+`npm run deploy` will `vite build` and push `dist` to the `gh-pages` branch
 
 ## static files
 
