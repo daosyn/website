@@ -1,7 +1,6 @@
 #! bash
 
 STATUS="$(git status)"
-git config --global --list
 
 if [[ $STATUS == *"nothing to commit, working tree clean"* ]]
 then

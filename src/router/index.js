@@ -33,7 +33,7 @@ export const routes = [
     component: () => import("../views/lastfm.vue"),
   },
   {
-    path: "/transparent_girl",
+    path: "/climb",
     name: "_climb",
     component: () => import("../views/climb.vue"),
   },
