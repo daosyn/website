@@ -37,7 +37,7 @@ body {
 
 @font-face {
   font-family: "savior";
-  src: local("savior"), url(./fonts/savior.woff) format("woff");
+  src: local("savior"), url(/fonts/savior.woff) format("woff");
 }
 
 #app {
