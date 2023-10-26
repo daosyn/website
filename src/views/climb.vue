@@ -7,14 +7,40 @@
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    ></iframe>
+      @load="handleLoad"
+      v-show="loaded"
+    />
+    <loader v-show="!loaded"></loader>
   </div>
 </template>
+
+<script>
+import loader from "@/components/loader.vue";
+
+export default {
+  components: {
+    loader,
+  },
+  data() {
+    return {
+      loaded: false,
+    };
+  },
+  methods: {
+    handleLoad() {
+      this.loaded = true;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .youtube-video-container {
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .youtube-video-container::after {

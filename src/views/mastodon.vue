@@ -7,14 +7,40 @@
       title="mastodon feed"
       frameborder="0"
       sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox"
+      @load="handleLoad"
+      v-show="loaded"
     />
+    <loader v-show="!loaded"></loader>
   </div>
 </template>
+
+<script>
+import loader from "@/components/loader.vue";
+
+export default {
+  components: {
+    loader,
+  },
+  data() {
+    return {
+      loaded: false,
+    };
+  },
+  methods: {
+    handleLoad() {
+      this.loaded = true;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .mastodon-container {
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mastodon-container::after {
