@@ -1,6 +1,6 @@
 <template>
   <div id="gr_custom_widget_1696433691">
-    <div class="gr_custom_container_1696433691" style="width: 95%;">
+    <div class="gr_custom_container_1696433691" style="width: 95%">
       <h2 class="gr_custom_header_1696433691">
         <a
           rel="nofollow"

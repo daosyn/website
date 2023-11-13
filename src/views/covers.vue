@@ -1,5 +1,5 @@
 <template>
-  <youtube playlist-id="PLuZs8bwd7syXDVOG6oUa9pOtyISSt3uND" />
+  <youtube playlist-id="PLuZs8bwd7syWgz3LE28M1cug9IPceObC3" />
 </template>
 
 <script>

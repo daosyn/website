@@ -15,7 +15,7 @@ export const routes = [
   {
     path: "/youtube",
     name: "_yt",
-    component: () => import("../views/youtube.vue"),
+    component: () => import("../views/covers.vue"),
   },
   {
     path: "/goodreads",
