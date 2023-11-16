@@ -38,7 +38,7 @@ echo
 
 if [ "$os" == "Linux" ]; then
     # install packages -- assumes Debian at the moment
-    packages='feh git golang gpg make redshift scdaemon suckless-tools vim xorg'
+    packages='feh git golang gpg make redshift scdaemon suckless-tools vim xorg cowsay'
     libraries='libx11-dev libxft-dev libxinerama-dev'
     sudo apt update
     sudo apt install $packages $libraries -y
