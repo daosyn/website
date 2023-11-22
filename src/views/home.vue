@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>life often scrambles itself</h1>
+    <h1>// life often scrambles itself //</h1>
     <h2>
       {{ today }}
     </h2>
     <img src="/images/inmato.jpg" alt="inmato" />
-    <h3>
+    <!-- <h3>
       <router-link to="/lastfm">// currently listening to //</router-link>
     </h3>
     <h3>
@@ -19,7 +19,7 @@
     </h3>
     <h3>
       <router-link to="/climb">// recently climbed //</router-link>
-    </h3>
+    </h3> -->
   </div>
 </template>
 
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-a {
+h1 {
   color: crimson;
   text-decoration: none;
 }
