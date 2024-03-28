@@ -96,7 +96,7 @@ export default {
     },
     moveY(column, size) {
       for (const facelet of this.faceletMatrix) {
-        facelet[column].isMoving.transform = `translateY(${size/4}px)`;
+        facelet[column].isMoving.transform = `translateY(${size / 4}px)`;
       }
       setTimeout(() => {
         const down = size > 0;
@@ -122,7 +122,7 @@ export default {
     },
     moveX(row, size) {
       this.faceletMatrix[row].forEach((facelet) => {
-        facelet.isMoving.transform = `translateX(${size/4}px)`;
+        facelet.isMoving.transform = `translateX(${size / 4}px)`;
       });
       setTimeout(() => {
         this.faceletMatrix[row].forEach((facelet) => {

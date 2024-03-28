@@ -38,7 +38,6 @@
 </template>
 
 <style scoped>
-
 /* Box model */
 .rubiks-loader *,
 .rubiks-loader *::before,
