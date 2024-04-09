@@ -1,8 +1,8 @@
 <template>
   <div class="mastodon-container">
     <iframe
-      width="560"
-      height="315"
+      width="100%"
+      height="100%"
       src="https://www.mastofeed.com/apiv2/feed?userurl=https%3A%2F%2Fmastodon.social%2Fusers%2Fdaosyn&theme=dark&size=100&header=false&replies=false&boosts=false"
       title="mastodon feed"
       frameborder="0"
