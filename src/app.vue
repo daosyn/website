@@ -67,10 +67,20 @@ body {
 #content-container {
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 5vw;
+  margin: 2vw;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #cube-container {
-  margin-top: 2.5vw;
+  margin: 1vw;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

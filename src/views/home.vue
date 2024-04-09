@@ -1,10 +1,12 @@
 <template>
   <div>
-    <h1>// life often scrambles itself //</h1>
-    <h2>
-      {{ today }}
-    </h2>
-    <img src="/images/inmato.jpg" alt="inmato" />
+    <div>
+      <h1>// life often scrambles itself //</h1>
+      <h2>
+        {{ today }}
+      </h2>
+      <img src="/images/inmato.jpg" alt="inmato" />
+    </div>
   </div>
 </template>
 

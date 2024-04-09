@@ -20,12 +20,12 @@ export const routes = [
     meta: { title: "alex g covers" },
     component: () => import("../views/covers.vue"),
   },
-  {
-    path: "/goodreads",
-    name: "_book",
-    meta: { title: "favorite books" },
-    component: () => import("../views/goodreads.vue"),
-  },
+  // {
+  //   path: "/goodreads",
+  //   name: "_book",
+  //   meta: { title: "favorite books" },
+  //   component: () => import("../views/goodreads.vue"),
+  // },
   {
     path: "/mastodon",
     name: "_mstdn",
@@ -49,6 +49,12 @@ export const routes = [
   //   name: "rainy days",
   //   component: () => import("../views/rain.vue"),
   // },
+  {
+    path: "/photos",
+    name: "_photos",
+    meta: { title: "photos" },
+    component: () => import("../views/photos.vue"),
+  }
 ];
 
 const router = createRouter({
