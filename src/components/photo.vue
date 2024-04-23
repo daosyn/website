@@ -1,11 +1,5 @@
-<template>
-  <img
-    :src="`https://live.staticflickr.com/${serverId}/${photoId}_${secret}_q.jpg`"
-  />
-</template>
-
-<script setup>
-/* 
+<!--
+  https://www.flickr.com/services/api/misc.urls.html
     note on flickr size suffixes:
     s       thumbnail   75  cropped square
     q       thumbnail   150 cropped square
@@ -17,8 +11,18 @@
     z       medium      640    
     c       medium      800    
     b       large       1024    
-*/
-defineProps(["serverId", "photoId", "secret"]);
-</script>
+-->
+<template>
+  <img
+    :src="`https://live.staticflickr.com/${serverId}/${photoId}_${secret}_w.jpg`"
+    :style="{
+      objectFit: 'cover',
+      width: size / 3 + 'px',
+      height: size / 3 + 'px',
+    }"
+  />
+</template>
 
-<style scoped></style>
+<script setup>
+defineProps(["serverId", "photoId", "secret", "size"]);
+</script>

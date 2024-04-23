@@ -1,5 +1,5 @@
 <template>
-  <div class="photo-container">
+  <div class="photo-container" ref="content">
     <div>
       <photo
         v-for="photo in photos"
@@ -7,6 +7,7 @@
         :server-id="serverId"
         :photo-id="photo.photoId"
         :secret="photo.secret"
+        :size="size"
       />
     </div>
   </div>
@@ -67,14 +68,28 @@ export default {
         secret: "2aacd27c35",
       },
     ],
+    size: null,
   }),
+  mounted() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.size =
+        this.$refs.content.clientWidth > this.$refs.content.clientHeight
+          ? this.$refs.content.clientHeight
+          : this.$refs.content.clientWidth;
+    },
+  },
 };
 </script>
 
 <style scoped>
 .photo-container {
-}
-
-img {
+  overflow: scroll;
 }
 </style>
