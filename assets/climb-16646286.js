@@ -1,1 +1,0 @@
-import{y as t}from"./youtube-daf7d6df.js";import{_ as e,r as s,o as n,d as r}from"./index-745f78b9.js";import"./loader-da1d4942.js";const c={components:{youtube:t}};function p(a,u,_,m,i,d){const o=s("youtube");return n(),r(o,{"playlist-id":"PLuZs8bwd7syXDVOG6oUa9pOtyISSt3uND"})}const b=e(c,[["render",p]]);export{b as default};
