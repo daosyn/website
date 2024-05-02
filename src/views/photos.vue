@@ -89,9 +89,15 @@ export default {
 </script>
 
 <style scoped>
+.photo-container::-webkit-scrollbar {
+  display: none;
+}
+
 .photo-container {
   scroll-snap-type: y mandatory;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   width: v-bind(size);
   height: v-bind(size);
 }
