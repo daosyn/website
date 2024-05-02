@@ -14,15 +14,19 @@
 -->
 <template>
   <img
-    :src="`https://live.staticflickr.com/${serverId}/${photoId}_${secret}_w.jpg`"
-    :style="{
-      objectFit: 'cover',
-      width: size / 3 + 'px',
-      height: size / 3 + 'px',
-    }"
+    :src="`https://live.staticflickr.com/${serverId}/${photoId}_${secret}_c.jpg`"
   />
 </template>
 
 <script setup>
 defineProps(["serverId", "photoId", "secret", "size"]);
 </script>
+
+<style scoped>
+img {
+  scroll-snap-align: start;
+  object-fit: cover;
+  width: v-bind(size);
+  height: v-bind(size);
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="photo-container" ref="content">
-    <div>
+  <div ref="content">
+    <div class="photo-container">
       <photo
         v-for="photo in photos"
         :key="photo.photoId"
@@ -81,8 +81,8 @@ export default {
     handleResize() {
       this.size =
         this.$refs.content.clientWidth > this.$refs.content.clientHeight
-          ? this.$refs.content.clientHeight
-          : this.$refs.content.clientWidth;
+          ? this.$refs.content.clientHeight + "px"
+          : this.$refs.content.clientWidth + "px";
     },
   },
 };
@@ -90,6 +90,9 @@ export default {
 
 <style scoped>
 .photo-container {
+  scroll-snap-type: y mandatory;
   overflow: scroll;
+  width: v-bind(size);
+  height: v-bind(size);
 }
 </style>
