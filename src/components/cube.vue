@@ -1,29 +1,31 @@
 <template>
   <div ref="cube">
-    <div v-for="(row, y) in faceletMatrix" :key="y">
-      <template v-for="(facelet, x) in row" :key="x">
-        <router-link
-          v-if="facelet.route"
-          v-slot="{ navigate }"
-          :to="facelet.route.path"
-          custom
-        >
+    <div :style="{ width: cubeSize, height: cubeSize }">
+      <div v-for="(row, y) in faceletMatrix" :key="y">
+        <template v-for="(facelet, x) in row" :key="x">
+          <router-link
+            v-if="facelet.route"
+            v-slot="{ navigate }"
+            :to="facelet.route.path"
+            custom
+          >
+            <div
+              role="link"
+              :style="[faceletDimensions, facelet.isMoving]"
+              :class="facelet.classes"
+              @click="navigate"
+              @keypress.enter="navigate"
+            >
+              {{ facelet.route.name }}
+            </div>
+          </router-link>
           <div
-            role="link"
+            v-else
             :style="[faceletDimensions, facelet.isMoving]"
             :class="facelet.classes"
-            @click="navigate"
-            @keypress.enter="navigate"
-          >
-            {{ facelet.route.name }}
-          </div>
-        </router-link>
-        <div
-          v-else
-          :style="[faceletDimensions, facelet.isMoving]"
-          :class="facelet.classes"
-        />
-      </template>
+          />
+        </template>
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +49,7 @@ export default {
     ),
     randomMovementHandler: null,
     faceletDimensions: null,
+    cubeSize: null,
     size: null,
   }),
   mounted() {
@@ -73,10 +76,13 @@ export default {
       });
     },
     setFaceletDimensions() {
-      this.size =
+      const windowCalculation = Math.ceil(
         this.$refs.cube.clientWidth > this.$refs.cube.clientHeight
-          ? this.$refs.cube.clientHeight / 6 - 10
-          : this.$refs.cube.clientWidth / 6 - 10;
+          ? this.$refs.cube.clientHeight
+          : this.$refs.cube.clientWidth
+      );
+      this.cubeSize = windowCalculation + "px";
+      this.size = Math.floor(windowCalculation / 6) - 10;
       this.faceletDimensions = {
         width: this.size + "px",
         height: this.size + "px",
