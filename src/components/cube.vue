@@ -82,7 +82,7 @@ export default {
           : this.$refs.cube.clientWidth
       );
       this.cubeSize = windowCalculation + "px";
-      this.size = Math.floor(windowCalculation / 6) - 10;
+      this.size = Math.floor(windowCalculation / 6) - 11;
       this.faceletDimensions = {
         width: this.size + "px",
         height: this.size + "px",

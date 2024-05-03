@@ -23,14 +23,6 @@ export default {
     // https://www.flickr.com/services/api/misc.urls.html
     serverId: 65535,
     photos: [
-      // {
-      //   photoId: 50123443351,
-      //   secret: "35b22bef1f",
-      // },
-      // {
-      //   photoId: 50122878058,
-      //   secret: "a49432ea7e",
-      // },
       {
         photoId: 50106152443,
         secret: "1d6b977755",
@@ -66,6 +58,14 @@ export default {
       {
         photoId: 50106698361,
         secret: "2aacd27c35",
+      },
+      {
+        photoId: 50123443351,
+        secret: "35b22bef1f",
+      },
+      {
+        photoId: 50122878058,
+        secret: "a49432ea7e",
       },
     ],
     size: null,

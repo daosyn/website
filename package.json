@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d dist -m \"$(git log -1 --pretty=format:%B)\"",
     "serve": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier .  --write"
+    "format": "prettier . --write"
   },
   "dependencies": {
     "vue": "^3.0.0",

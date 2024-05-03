@@ -54,7 +54,7 @@ export const routes = [
     name: "_photos",
     meta: { title: "photos" },
     component: () => import("../views/photos.vue"),
-  }
+  },
 ];
 
 const router = createRouter({
