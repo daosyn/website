@@ -28,5 +28,4 @@
 - move loading and resize events to content container/app level
 - add loading to photos (solved by above)
 - make about and home more dynamic (possibly solved by above-above)
-- add hidden mastodon link
 
