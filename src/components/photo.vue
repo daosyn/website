@@ -13,9 +13,10 @@
     b       large       1024    
 -->
 <template>
-  <img
-    :src="`https://live.staticflickr.com/${serverId}/${photoId}_${secret}_c.jpg`"
-  />
+  <a :href="`https://www.flickr.com/photos/daosyn/${photoId}`" target="_blank">
+    <img
+      :src="`https://live.staticflickr.com/${serverId}/${photoId}_${secret}_c.jpg`"
+  /></a>
 </template>
 
 <script setup>

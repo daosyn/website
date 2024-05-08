@@ -23,6 +23,7 @@ export default {
     // https://www.flickr.com/services/api/misc.urls.html
     serverId: 65535,
     photos: [
+      // japan
       {
         photoId: 50106152443,
         secret: "1d6b977755",
@@ -59,6 +60,7 @@ export default {
         photoId: 50106698361,
         secret: "2aacd27c35",
       },
+      // hebru brantley
       {
         photoId: 50123443351,
         secret: "35b22bef1f",
@@ -67,10 +69,36 @@ export default {
         photoId: 50122878058,
         secret: "a49432ea7e",
       },
+      // <3
+      {
+        photoId: 53708689175,
+        secret: "ffac0dbda4",
+      },
+      {
+        photoId: 53708466528,
+        secret: "321b4e89b5",
+      },
+      {
+        photoId: 53708256271,
+        secret: "73229c0eb4",
+      },
+      {
+        photoId: 53708256136,
+        secret: "c0d046e56a",
+      },
+      {
+        photoId: 53708584514,
+        secret: "35ed1b6a46",
+      },
+      {
+        photoId: 53708586109,
+        secret: "7a6ef4e7ee",
+      },
     ],
     size: null,
   }),
   mounted() {
+    this.shuffleArray(this.photos);
     this.handleResize();
     window.addEventListener("resize", this.handleResize);
   },
@@ -83,6 +111,12 @@ export default {
         this.$refs.content.clientWidth > this.$refs.content.clientHeight
           ? this.$refs.content.clientHeight + "px"
           : this.$refs.content.clientWidth + "px";
+    },
+    shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
     },
   },
 };
