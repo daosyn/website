@@ -97,8 +97,10 @@ export default {
     ],
     size: null,
   }),
-  mounted() {
+  created() {
     this.shuffleArray(this.photos);
+  },
+  mounted() {
     this.handleResize();
     window.addEventListener("resize", this.handleResize);
   },
