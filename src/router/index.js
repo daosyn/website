@@ -50,8 +50,13 @@ export const routes = [
   //   component: () => import("../views/rain.vue"),
   // },
   {
-    path: "/photos/:album?",
+    path: "/photos",
     name: "_photos",
+    meta: { title: "photos" },
+    component: () => import("../views/photos.vue"),
+  },
+  {
+    path: "/photos/:album?",
     meta: { title: "photos" },
     props: true,
     component: () => import("../views/photos.vue"),
