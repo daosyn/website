@@ -50,10 +50,16 @@ export const routes = [
   //   component: () => import("../views/rain.vue"),
   // },
   {
-    path: "/photos",
+    path: "/photos/:album?",
     name: "_photos",
     meta: { title: "photos" },
+    props: true,
     component: () => import("../views/photos.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    meta: { title: "_lost" },
+    component: () => import("../views/lost.vue"),
   },
 ];
 
