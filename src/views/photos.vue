@@ -13,6 +13,7 @@
     <div v-else>
       <h1>please select an album</h1>
       <ul>
+        <li><RouterLink to="/photos/bikes">bikes</RouterLink></li>
         <li><RouterLink to="/photos/current">current stuff</RouterLink></li>
         <li><RouterLink to="/photos/old">old stuff</RouterLink></li>
       </ul>
@@ -33,6 +34,24 @@ export default {
     // https://www.flickr.com/services/api/misc.urls.html
     serverId: 65535,
     photos: {
+      bikes: [
+        {
+          photoId: 53813393732,
+          secret: "f248f18be8",
+        },
+        {
+          photoId: 53814563073,
+          secret: "ae3efb8734",
+        },
+        {
+          photoId: 53814758060,
+          secret: "fd3fbc47ae",
+        },
+        {
+          photoId: 53814653754,
+          secret: "53749fe205",
+        },
+      ],
       old: [
         //japan
         {
