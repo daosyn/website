@@ -52,6 +52,18 @@ export default {
     cubeSize: null,
     size: null,
   }),
+  beforeCreate() {
+    // spamming this across diff lifecycles bc ig browser doesn't seem to set it
+    this.setFaceletDimensions();
+  },
+  created() {
+    // spamming this across diff lifecycles bc ig browser doesn't seem to set it
+    this.setFaceletDimensions();
+  },
+  beforeMount() {
+    // spamming this across diff lifecycles bc ig browser doesn't seem to set it
+    this.setFaceletDimensions();
+  },
   mounted() {
     this.setRoutes();
     this.setFaceletDimensions();
