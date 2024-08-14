@@ -40,10 +40,6 @@ export default {
           secret: "f248f18be8",
         },
         {
-          photoId: 53814563073,
-          secret: "ae3efb8734",
-        },
-        {
           photoId: 53814758060,
           secret: "fd3fbc47ae",
         },
