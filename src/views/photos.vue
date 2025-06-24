@@ -49,11 +49,11 @@ export default {
         },
         {
           photoId: 53894139724,
-          secret: "1d71f2f4be"
+          secret: "48a9a7dcfb"
         },
         {
           photoId: 53893807201,
-          secret: "2e20bb03ae"
+          secret: "be11906c53"
         }
       ],
       old: [
