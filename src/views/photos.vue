@@ -47,6 +47,14 @@ export default {
           photoId: 53814653754,
           secret: "53749fe205",
         },
+        {
+          photoId: 53894139724,
+          secret: "1d71f2f4be"
+        },
+        {
+          photoId: 53893807201,
+          secret: "2e20bb03ae"
+        }
       ],
       old: [
         //japan

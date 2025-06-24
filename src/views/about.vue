@@ -8,7 +8,8 @@
         i like learning new things with full focus, then picking up the next
         thing soon after
       </p>
-      <p>right now my obsessions are rock climbing and playing guitar</p>
+      <p>my obsessions include but are not limited to:</p>
+      <p>rock climbing, yo-yos, [og/table] tennis, playing guitar</p>
     </div>
   </div>
 </template>
