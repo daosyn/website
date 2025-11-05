@@ -44,17 +44,18 @@ if [ "$os" == "Linux" ]; then
     sudo apt install $packages $libraries -y
     sudo apt autoremove -y
 
+    # not using rn but may bring back
     # set up tewi font -- still a little messy
-    git clone https://github.com/daosyn/tewi-font $HOME/tewi-font
-    make -C $HOME/tewi-font
-    mkdir -p $HOME/.fonts
-    ln -s $HOME/tewi-font/out $HOME/.fonts/out
-    sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
-    fc-cache -fv
+    # git clone https://github.com/daosyn/tewi-font $HOME/tewi-font
+    # make -C $HOME/tewi-font
+    # mkdir -p $HOME/.fonts
+    # ln -s $HOME/tewi-font/out $HOME/.fonts/out
+    # sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+    # fc-cache -fv
 
     # install dwm and st -- move somewhere for BSD too
-    git clone --recurse-submodules https://github.com/daosyn/suckless.git $HOME/suckless
-    make -C $HOME/suckless all clean
+    # git clone --recurse-submodules https://github.com/daosyn/suckless.git $HOME/suckless
+    # make -C $HOME/suckless all clean
 fi
 
 echo -e "\n${red}configuring gpg...${nocolor}\n"
@@ -85,7 +86,5 @@ fi
 echo -e "\n${red}downloading wallpapers...${nocolor}\n"
 git clone https://github.com/daosyn/wallpapers.git $HOME/wallpapers
 
-echo -e "\n${red}sourcing .bashrc...${nocolor}\n"
-. $HOME/.bashrc
+echo -e "\ndone! source ~/.bashrc to update your current shell, or open a new one\n"
 
-echo -e "\ndone!\n"
