@@ -16,7 +16,7 @@
 
 ## deploy
 
-`npm run deploy` will `vite build` and push `dist` to the `gh-pages` branch
+a push to main will build and deploy via github workflows
 
 ## static files
 
@@ -28,4 +28,5 @@
 - move loading and resize events to content container/app level
 - add loading to photos (solved by above)
 - make about and home more dynamic (possibly solved by above-above)
+- some blogs and animations
 
