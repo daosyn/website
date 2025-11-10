@@ -46,7 +46,7 @@ if [ "$os" == "Linux" ]; then
 
     # install beets using pipx
     pipx install beets
-    pipx inject pylast requests
+    pipx inject beets pylast requests
 
     # not using rn but may bring back
     # set up tewi font -- still a little messy
