@@ -63,6 +63,7 @@ export default {
     window.removeEventListener("resize", this.setFaceletDimensions);
   },
   methods: {
+    // initializers
     setRoutes() {
       routes.forEach((route) => {
         let x = Math.floor(Math.random() * 6);
@@ -74,6 +75,18 @@ export default {
         this.faceletMatrix[x][y].route = route;
         this.faceletMatrix[x][y].classes.push("link");
       });
+    },
+    setRandomMovement() {
+      this.randomMovementHandler = setInterval(() => {
+        const index = Math.floor(Math.random() * 6);
+        const direction = Math.floor(Math.random() * 2);
+        const axis = Math.floor(Math.random() * 2);
+        if (axis) {
+          direction ? this.moveLeft(index) : this.moveRight(index);
+        } else {
+          direction ? this.moveUp(index) : this.moveDown(index);
+        }
+      }, this.MOVE_TIMER);
     },
     setFaceletDimensions() {
       const windowCalculation = Math.ceil(
@@ -88,18 +101,8 @@ export default {
         height: this.size + "px",
       };
     },
-    setRandomMovement() {
-      this.randomMovementHandler = setInterval(() => {
-        const index = Math.floor(Math.random() * 6);
-        const direction = Math.floor(Math.random() * 2);
-        const axis = Math.floor(Math.random() * 2);
-        if (axis) {
-          direction ? this.moveLeft(index) : this.moveRight(index);
-        } else {
-          direction ? this.moveUp(index) : this.moveDown(index);
-        }
-      }, this.MOVE_TIMER);
-    },
+
+    // vertical movement
     moveY(column, size) {
       for (const facelet of this.faceletMatrix) {
         facelet[column].isMoving.transform = `translateY(${size / 4}px)`;
@@ -126,6 +129,8 @@ export default {
     moveDown(column) {
       this.moveY(column, this.size);
     },
+
+    // horizontal movement
     moveX(row, size) {
       this.faceletMatrix[row].forEach((facelet) => {
         facelet.isMoving.transform = `translateX(${size / 4}px)`;
@@ -193,3 +198,4 @@ export default {
   background-color: yellow;
 }
 </style>
+
