@@ -63,7 +63,7 @@ export const routes = [
   },
   {
     path: "/:pathMatch(.*)*",
-    meta: { title: "_lost" },
+    meta: { title: "lost" },
     component: () => import("../views/lost.vue"),
   },
 ];

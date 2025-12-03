@@ -57,7 +57,7 @@ export default {
         }
       ],
       old: [
-        //japan
+        // japan
         {
           photoId: 50106152443,
           secret: "1d6b977755",
