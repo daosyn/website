@@ -8,8 +8,8 @@
         i like learning new things with full focus, then picking up the next
         thing soon after
       </p>
-      <p>my obsessions include but are not limited to:</p>
-      <p>rock climbing, yo-yos, [og/table] tennis, playing guitar</p>
+      <p>my obsessions include, but are not limited to:</p>
+      <p>bouldering, yo-yos, beyblade, magic the gathering, [og/table] tennis, playing guitar</p>
     </div>
   </div>
 </template>

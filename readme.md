@@ -2,21 +2,16 @@
 
 [link to the site](https://daosyn.info)
 
-## set up
+## running
 
-`npm i`
+```bash
+npm i
+npm run dev
+```
 
-## run
+## deploying
 
-`npm run dev` starts server with hot reload on http://localhost:1250
-
-## dev
-
-`npm run build` for production and `npm run lint` to run linter
-
-## deploy
-
-a push to main will build and deploy via github workflows
+uses github actions. see `.github/workflows/deploy.yml`
 
 ## static files
 
