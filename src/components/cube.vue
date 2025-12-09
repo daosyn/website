@@ -166,7 +166,6 @@ export default {
   position: relative;
   display: inline-block;
   border: 5px solid black;
-  transition: transform 1s ease-out;
   font-size: 2vw;
   font-weight: bold;
   color: black;
