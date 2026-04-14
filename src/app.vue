@@ -65,14 +65,13 @@ body {
 }
 
 #content-container {
-  overflow-x: hidden;
-  overflow-y: auto;
   margin: 2vw;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 #cube-container {
