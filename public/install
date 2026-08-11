@@ -36,6 +36,7 @@ echo -e "\n${red}OS is $os -- continue?${nocolor}\n"
 read -sp "press enter to continue, ctrl+c to quit"
 echo
 
+cd ~
 if [ "$os" == "Linux" ]; then
     # install packages -- assumes Debian/Ubuntu at the moment
     packages='feh git golang gpg make redshift scdaemon suckless-tools vim xorg cowsay pipx imagemagick'
@@ -66,12 +67,16 @@ elif [ "$os" == "Darwin" ]; then
 
     # homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    curl -O https://raw.githubusercontent.com/daosyn/dotfiles/refs/heads/master/.brewfile
+    if [ -e /opt/homebrew/bin/brew ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
     brew bundle --file=$HOME/.brewfile
     brew cleanup
 
     # use latest bash
-    sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
-    chsh -s /usr/local/bin/bash
+    sudo bash -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
+    chsh -s /opt/homebrew/bin/bash
 fi
 
 echo -e "\n${red}configuring gpg...${nocolor}\n"
