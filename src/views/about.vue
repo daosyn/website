@@ -3,7 +3,7 @@
     <div>
       <h1>hey! my name is brandon</h1>
       <img src="/images/me.jpg" alt="me" />
-      <p>i am currently a software engineering consultant at slalom</p>
+      <p>i am currently working as a software engineering consultant</p>
       <p>
         i like learning new things with full focus, then picking up the next
         thing soon after
