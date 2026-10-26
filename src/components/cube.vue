@@ -89,13 +89,11 @@ export default {
       }, this.MOVE_TIMER);
     },
     setFaceletDimensions() {
-      const windowCalculation = Math.ceil(
-        this.$refs.cube.clientWidth > this.$refs.cube.clientHeight
-          ? this.$refs.cube.clientHeight
-          : this.$refs.cube.clientWidth
-      );
+      const windowCalculation = (this.$refs.cube.clientWidth > this.$refs.cube.clientHeight
+        ? this.$refs.cube.clientHeight
+        : this.$refs.cube.clientWidth) - 0.25;
       this.cubeSize = windowCalculation + "px";
-      this.size = Math.floor(windowCalculation / 6) - 11;
+      this.size = windowCalculation / 6 - 0.001;
       this.faceletDimensions = {
         width: this.size + "px",
         height: this.size + "px",
@@ -163,6 +161,7 @@ export default {
 }
 
 .facelet {
+  box-sizing: border-box;
   position: relative;
   display: inline-block;
   border: 5px solid black;

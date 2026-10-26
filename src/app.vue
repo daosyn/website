@@ -65,7 +65,7 @@ body {
 }
 
 #content-container {
-  margin: 2vw;
+  margin: 1vw;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
